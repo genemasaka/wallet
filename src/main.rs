@@ -32,7 +32,7 @@ fn App() -> Html {
 
     // Initializing the sender balance state
     let sender_balance = use_state(|| sender.balance);
-
+	let recepient_balance = use_state(|| recepient.balance);
     // Rendering the HTML content
     html! {
         <>
@@ -48,21 +48,26 @@ fn App() -> Html {
                 // A body container div with the "card-body" class
                 <div class={classes!("card-body")}>
                     // A header element with the text "New Balance:"
-                    <h5>{"New Balance:"}</h5>
+                    <h5>{"Sender Balance:"}</h5>
                     // A paragraph element displaying the sender's current balance
                     <p>{ *sender_balance }</p>
+                    <h5>{"Recepient Balance:"}</h5>
+                    <p>{ *recepient_balance }</p>
                     // A button with the "Send" text and the "btn" class
                     <button class={classes!("btn")} onclick = {move |_| {
                         // A constant representing the amount to be transferred
                         let amount: u32 = 33;
                         // Cloning the sender balance state
                         let balance = sender_balance.clone();
+                        let recepient_balance = recepient_balance.clone();
                         // Checking the sender's unique identifier
                         match sender.uid {
                             // If the sender's UID matches, subtract the amount from the balance and update the state
                             1331997 => {
                                 let value = *balance - amount;
+                                let recepient_value = *recepient_balance + amount;
                                 sender_balance.set(value);
+                                recepient_balance.set(recepient_value);
                             },
                             // If the UID does not match, print an error message
                             _=> println!("You don't have the correct credentials to transfer tokens"),
