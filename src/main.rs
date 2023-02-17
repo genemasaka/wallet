@@ -74,8 +74,9 @@ fn App() -> Html {
                         }
                     }
                     }
-                    >{"Send"}</button>
-
+                    >
+	    	     {"Send"}
+	    	   </button>
                 </div>
             </div>
         </div>
