@@ -15,12 +15,13 @@ Rust language installed
 Clone the repository using git clone https://github.com/<username>/<repository>.git or download the code as a zip file and extract it.
 Navigate to the project directory using a command prompt or terminal.
 Run the command cargo run.
+
 Open a web browser and navigate to http://localhost:8000. The wallet application will be displayed.
 
 ## Dependencies
 
 yew v0.17.1
 
-##Contributing
+## Contributing
 
 If you would like to contribute to this code, please create a pull request.
